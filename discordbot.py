@@ -17,7 +17,7 @@ openai.api_key = os.environ["OPENAI_API_KEY"] = config["openai_api_key"]
 intents = discord.Intents.default()
 intents.message_content = True
 
-bot = commands.Bot(command_prefix='/', intents=intents)
+bot = commands.Bot(command_prefix='/', intents = intents)
 
 @bot.event
 async def on_ready():
@@ -70,5 +70,6 @@ async def chat(ctx, text: str):
     response = openai.ChatCompletion.create(model = "gpt-3.5-turbo", messages = text_list)
     print(response.choices[0]['message']['content'])
     await ctx.send(response.choices[0]['message']['content'])
+
 
 bot.run(config['bot_key'], log_handler = handler, log_level = logging.DEBUG)
