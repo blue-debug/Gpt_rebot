@@ -32,9 +32,6 @@ async def on_message(message):
     if message.content == 'ping':
         await message.channel.send('pong')
 
-    if message.content == '顶级':
-        await message.channel.send('顶级')
-
     await bot.process_commands(message)
 
 @bot.command()
